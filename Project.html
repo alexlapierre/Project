@@ -1,14 +1,24 @@
 <head>
-  <title>Project</title>
+  <title>project</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
 
-  {{> hello}}
+  {{>addStatusForm}}
+
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="addStatusForm">
+
+    <form class="addStatus">
+      {{#each categories}}
+        <input type="checkbox" name="categoryCheckbox" class="boxCheck" value={{categoryDesc}}>{{categoryDesc}}<br>
+      {{/each}}
+      <input type="text" name="status">
+      <input type="submit" value="Add status">
+    </form>
+    {{#each status}}
+    <p>{{statusDesc}} {{category}}</p>
+    {{/each}}
+
 </template>
