@@ -20,9 +20,11 @@ Template.addStatusForm.events({
         category : categorySelected,
         date: dateDB
     });
+
+    $('.statusInput').val('');
 },
 
-'click .clickc': function () {
+'click .delete': function () {
   event.preventDefault();
   //console.log('working');
 
