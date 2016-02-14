@@ -34,7 +34,7 @@ Template.addStatusForm.events({
 'submit .filterCategories': function (event) {
   event.preventDefault();
   var categorySelected = $('.boxCheck:checked').val();
-
+  Session.set('categorySelected', categorySelected);
 
   $('.statusInput').val('');
 },
