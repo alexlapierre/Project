@@ -7,6 +7,9 @@ Template.admin.events({
     Category.insert({
         categoryDesc: categoryInput
     });
+
+    $('.categoryInput').val('');
+
   },
 
   'click .delete': function () {

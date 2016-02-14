@@ -8,6 +8,16 @@
       <input type="submit" value="Add status">
     </form>
 
+    <form class="filterCategories">
+      <h1>Categories</h1>
+      {{#each categories}}
+        <input type="checkbox" name="categoryCheckbox" class="boxCheck" value={{categoryDesc}}>{{categoryDesc}}<br>
+      {{/each}}
+      <input type="submit" value="Filter Categories">
+    </form>
+
+
+
     <div>
     {{#each status}}
     <p>{{statusDesc}} {{category}}</p>

@@ -30,4 +30,12 @@ Template.addStatusForm.events({
 
   Status.remove({_id: statusID});
 },
+
+'submit .filterCategories': function (event) {
+  event.preventDefault();
+  var categorySelected = $('.boxCheck:checked').val();
+
+
+  $('.statusInput').val('');
+},
 });
