@@ -3,8 +3,7 @@ Template.addStatusForm.events({
   'submit .addStatus': function (event) {
     event.preventDefault();
     var statusInput = event.target.status.value;
-    var categorySelected = event.target.categoryDrop.value
-    //var categorySelected = $('.boxCheck').val();
+    var categorySelected = $('.boxCheck:checked').val();
 
 
     var dateDB = new Date();
@@ -32,7 +31,6 @@ Template.addStatusForm.events({
   Status.remove({_id: statusID});
 },
 
-/*
 'submit .filterCategories': function (event) {
   event.preventDefault();
   var categorySelected = $('.boxCheck2:checked').val();
@@ -40,5 +38,4 @@ Template.addStatusForm.events({
 
   $('.statusInput').val('');
 },
-*/
 });
