@@ -1,9 +1,12 @@
 <template name="addStatusForm">
 
     <form class="addStatus">
+      <select name="categoryDropMenu">
       {{#each categories}}
-        <input type="checkbox" name="categoryCheckbox" class="boxCheck" value={{categoryDesc}}>{{categoryDesc}}<br>
+        <!-- <input type="checkbox" name="categoryCheckbox" class="boxCheck" value={{categoryDesc}}>{{categoryDesc}}<br> -->
+        <option value={{categoryDesc}}>{{categoryDesc}}</option>
       {{/each}}
+      </select>
       <input type="text" name="status" class="statusInput">
       <input type="submit" value="Add status">
     </form>

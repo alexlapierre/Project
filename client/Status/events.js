@@ -3,8 +3,8 @@ Template.addStatusForm.events({
   'submit .addStatus': function (event) {
     event.preventDefault();
     var statusInput = event.target.status.value;
-    var categorySelected = $('.boxCheck:checked').val();
-
+    //var categorySelected = $('.boxCheck:checked').val();
+    var categorySelected = event.target.categoryDropMenu.value;
 
     var dateDB = new Date();
 
