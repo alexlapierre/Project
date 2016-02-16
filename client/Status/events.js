@@ -31,4 +31,18 @@ Template.addStatusForm.events({
   Status.remove({_id: statusID});
 },
 
+
+'submit .filter': function (event) {
+
+  event.preventDefault();
+  if(event){
+    Session.set('clickChecker',true)
+  }
+
+  var categoryFilter = event.target.categoryFilter.value;
+
+  Session.set('categoryFilter', categoryFilter);
+
+}
+
 });

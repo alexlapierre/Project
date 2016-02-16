@@ -10,6 +10,15 @@
       <input type="text" name="status" class="statusInput">
       <input type="submit" value="Add status">
     </form>
+    
+    <form class="filter">
+      <select name="categoryFilter">
+      {{#each categories}}
+        <option value={{categoryDesc}}>{{categoryDesc}}</option>
+      {{/each}}
+      </select>
+      <input type="submit" value="Add Filter">
+    </form>
 
     <div>
     {{#each status}}
@@ -17,5 +26,6 @@
     <button type="button" class="delete">Delete</button>
     {{/each}}
     </div>
+
 
 </template>
