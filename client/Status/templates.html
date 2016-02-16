@@ -1,5 +1,5 @@
 <template name="addStatusForm">
-
+<!--
     <form class="addStatus">
       {{#each categories}}
         <input type="checkbox" name="categoryCheckbox" class="boxCheck" value={{categoryDesc}}>{{categoryDesc}}<br>
@@ -22,5 +22,26 @@
       {{/each}}
       <input type="submit" id="filterCheck" value="Filter Categories">
     </form>
+-->
+
+<form class="addStatus">
+  <!--
+  <select>
+  {{#each categories}}
+  <option value="{{categoryDesc}}" name="categoryDrop">{{categoryDesc}}</option>
+  {{/each}}
+  </select>
+-->
+  <input type="text" name="status" class="statusInput">
+  <input type="submit" value="Add status">
+</form>
+
+<div>
+{{#each status}}
+<p>{{statusDesc}} <!--{{category}}--></p>
+<button type="button" class="delete">Delete</button>
+{{/each}}
+</div>
+
 
 </template>

@@ -1,5 +1,6 @@
 Template.addStatusForm.helpers({
 
+/*
     status: function () {
       var categorySelected = Session.get('categorySelected');
 
@@ -15,6 +16,17 @@ Template.addStatusForm.helpers({
    categories: function(){
       return Category.find();
   }
+  */
+
+  status: function () {
+      return Status.find({}, {sort: {date: -1} });
+},
+
+  categories: function(){
+      return Category.find();
+}
+
+
 
 
 });
