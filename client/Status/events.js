@@ -18,6 +18,11 @@ Template.addStatusForm.events({
     });
 
     $('.statusInput').val('');
+
+    if(event){
+      Session.set('clickChecker',false)
+    }
+
 },
 
 'click .delete': function () {
