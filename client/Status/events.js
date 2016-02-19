@@ -10,12 +10,15 @@ Template.addStatusForm.events({
 
     console.log(dateDB);
 
-
+  if (statusInput != ""){
     Status.insert({
         statusDesc : statusInput,
         category : categorySelected,
         date: dateDB
     });
+  }else{
+    window.confirm("Blank statuses are not valid. Please write something!")
+  }
 
     $('.statusInput').val('');
 

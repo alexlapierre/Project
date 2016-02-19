@@ -4,9 +4,13 @@ Template.admin.events({
     event.preventDefault();
     var categoryInput = event.target.category.value;
 
+    if(categoryInput != ""){
     Category.insert({
         categoryDesc: categoryInput
     });
+  }else{
+    window.confirm("A blank input cannot be used as a category. Please enter a valid category.");
+  }
 
     $('.categoryInput').val('');
 
