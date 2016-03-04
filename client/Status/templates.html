@@ -1,30 +1,44 @@
 <template name="addStatusForm">
 
+
     <form class="addStatus">
-      <select name="categoryDropMenu">
+      <label for="comment">Add Comment</label>
+      <input type="text" name="status" class="statusInput form-control" rows="3">
+      <select name="categoryDropMenu" class="form-control" id="sel1">
       {{#each categories}}
-        <!-- <input type="checkbox" name="categoryCheckbox" class="boxCheck" value={{categoryDesc}}>{{categoryDesc}}<br> -->
         <option value={{categoryDesc}}>{{categoryDesc}}</option>
       {{/each}}
       </select>
-      <input type="text" name="status" class="statusInput">
-      <input type="submit" value="Add status">
+      <input type="submit" value="Add Comment" class="btn btn-default">
     </form>
+
 
     <form class="filter">
-      <select name="categoryFilter">
+      <label for="comment">Filter Comments(optional)</label>
+      <select name="categoryFilter" class="form-control" id="sel1">
       {{#each categories}}
         <option value={{categoryDesc}}>{{categoryDesc}}</option>
       {{/each}}
       </select>
-      <input type="submit" value="Add Filter">
+      <input type="submit" value="Add Filter" class="btn btn-default">
+      <button type="button" class="reset btn btn-default">Remove Filter</button>
+
     </form>
 
-    <div>
-    {{#each status}}
-    <p>{{statusDesc}} {{category}}</p>
-    <button type="button" class="delete">Delete</button>
-    {{/each}}
+
+     {{#each status}}
+    <!--<div class="col-sm-5">-->
+    <div class="panel panel-default">
+    <div class="panel-heading">
+    <strong>{{userEmail}}</strong> <span class="text-muted">{{category}}</span>
     </div>
+    <div class="panel-body">
+    {{statusDesc}}
+    </div><!-- /panel-body -->
+    <button type="button" class="delete">Delete</button>
+    </div><!-- /panel panel-default -->
+    <!--</div>-->
+    {{/each}}
+
 
 </template>

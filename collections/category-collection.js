@@ -1,5 +1,6 @@
 Category = new Mongo.Collection('category');
 
+/*
 CategorySchema = new SimpleSchema({
   "categoryDesc": {
     type: String,
@@ -8,3 +9,4 @@ CategorySchema = new SimpleSchema({
 });
 
 Category.attachSchema(CategorySchema);
+*/

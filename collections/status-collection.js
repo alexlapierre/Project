@@ -1,5 +1,6 @@
 Status = new Mongo.Collection('status');
 
+/*
 StatusSchema = new SimpleSchema({
   "statusDesc": {
     type: String,
@@ -16,3 +17,5 @@ StatusSchema = new SimpleSchema({
 });
 
 Status.attachSchema(StatusSchema);
+
+*/

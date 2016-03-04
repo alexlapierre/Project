@@ -6,6 +6,11 @@ Template.addStatusForm.events({
     //var categorySelected = $('.boxCheck:checked').val();
     var categorySelected = event.target.categoryDropMenu.value;
 
+    if(Meteor.user()){
+    var userEmail = Meteor.user().emails[0].address;
+  }else{
+    var userEmail = "Annonymous";
+  }
     var dateDB = new Date();
 
     console.log(dateDB);
@@ -14,7 +19,8 @@ Template.addStatusForm.events({
     Status.insert({
         statusDesc : statusInput,
         category : categorySelected,
-        date: dateDB
+        date: dateDB,
+        userEmail: userEmail
     });
   }else{
     window.confirm("Blank statuses are not valid. Please write something!")
@@ -44,13 +50,20 @@ Template.addStatusForm.events({
 
   event.preventDefault();
   if(event){
-    Session.set('clickChecker',true)
+    Session.set('clickChecker',true);
   }
 
   var categoryFilter = event.target.categoryFilter.value;
 
   Session.set('categoryFilter', categoryFilter);
 
-}
+},
+
+'click .reset': function () {
+  event.preventDefault();
+  if(event){
+    Session.set('clickChecker',false);
+  }
+},
 
 });

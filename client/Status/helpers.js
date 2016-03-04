@@ -21,6 +21,6 @@ Template.addStatusForm.helpers({
     }else{
       return "not clicked"
     }
-  }
+  },
 
 });
