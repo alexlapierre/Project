@@ -1,9 +1,12 @@
 <template name="addStatusForm">
 
 
+<div class="panel panel-primary">
+  <div class="panel-heading">Add Comment</div>
+  <div class="panel-body">
+
     <form class="addStatus">
-      <label for="comment">Add Comment</label>
-      <input type="text" name="status" class="statusInput form-control" rows="3">
+      <input type="text" name="status" class="statusInput form-control" rows="3" placeholder="Write your comment here....">
       <select name="categoryDropMenu" class="form-control" id="sel1">
       {{#each categories}}
         <option value={{categoryDesc}}>{{categoryDesc}}</option>
@@ -11,10 +14,13 @@
       </select>
       <input type="submit" value="Add Comment" class="btn btn-default">
     </form>
+    </div>
+      </div>
 
-
+      <div class="panel panel-primary">
+        <div class="panel-heading">Filter Comments (optional)</div>
+        <div class="panel-body">
     <form class="filter">
-      <label for="comment">Filter Comments(optional)</label>
       <select name="categoryFilter" class="form-control" id="sel1">
       {{#each categories}}
         <option value={{categoryDesc}}>{{categoryDesc}}</option>
@@ -24,6 +30,8 @@
       <button type="button" class="reset btn btn-default">Remove Filter</button>
 
     </form>
+  </div>
+    </div>
 
 
      {{#each status}}

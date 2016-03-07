@@ -1,0 +1,94 @@
+<template name = "eventBuilder">
+
+<script>
+  $( ".categoryForm" ).hide();
+</script>
+
+  <form class="form-horizontal eventForm">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Create an event name</legend>
+
+      <!-- Text input for event name-->
+      <div class="form-group eventInput">
+        <label class="col-md-4 control-label" for="Event Name">Event Name</label>
+        <div class="col-md-4">
+          <input id="Event Name" name="eventName" type="text" placeholder="Enter your event name..." class="form-control input-md eventName">
+
+        </div>
+
+        <!--Add Event Button -->
+        <div class="col-md-4">
+          <button id="singlebutton" class="btn btn-primary addEventButton">Add Event</button>
+        </div>
+      </div>
+
+    </fieldset>
+
+  </form>
+
+
+      <form class="form-horizontal categoryForm">
+        <fieldset>
+
+          <!-- Form Name -->
+          <legend>Create as many categories as you want</legend>
+
+      <!-- Text input for adding categories-->
+      <div class="form-group categoryInput">
+        <label class="col-md-4 control-label" for="eventCategory">Event Categories</label>
+        <div class="col-md-4">
+          <input id="eventCategory" name="eventCategory" type="text" placeholder="Enter as many categories as you need..." class="form-control input-md eventCategory">
+        </div>
+
+        <!--Add Category Button -->
+        <div class="col-md-4">
+          <button id="singlebutton" class="btn btn-primary addCatButton">Add Category</button>
+        </div>
+      </div>
+
+
+      <!-- Button -->
+      <div>
+        <div class="col-md-4"></div>
+        <button id="singlebutton" name="singlebutton" class="btn btn-success col-md-4">Submit Event</button>
+        <div class="col-md-4"></div>
+    </div>
+
+
+    </fieldset>
+
+  </form>
+
+
+
+  {{#each event}}
+  <legend>{{eventName}}</legend>
+  <button type="button" class="deleteEventName">Delete Event</button>
+  {{/each}}
+
+      <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Event Name</th>
+          <th>Categories</th>
+          <th>Event ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each category}}
+        <tr>
+          <td>{{eventName}}</td>
+          <td>{{eventCategory}}</td>
+          <td>{{eventID}}</td>
+          <button type="button" class="deleteCategory">Delete Category</button>
+        </tr>
+
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+</template>
