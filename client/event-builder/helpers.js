@@ -1,11 +1,15 @@
 Template.eventBuilder.helpers({
 
   event : function(){
-    return Events.find();
+    var eventID = Session.get('eventID');
+    var currentUserId = Meteor.userId();
+    return Events.find({_id: eventID, createdBy: currentUserId});
   },
 
   category : function(){
-    return Category.find();
+    var eventID = Session.get('eventID');
+    var currentUserId = Meteor.userId();
+    return Category.find({eventID: eventID, createdBy: currentUserId});
   },
 
 

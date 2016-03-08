@@ -9,11 +9,13 @@ Template.eventBuilder.events({
    var eventID = new Meteor.Collection.ObjectID().toHexString();
    Session.set('eventID', eventID);
    Session.set('eventName',eventName);
+   var currentUserId = Meteor.userId();
 
      Events.insert({
          eventName : eventName,
          date: dateDB,
-         _id: eventID
+         _id: eventID,
+         createdBy: currentUserId
 });
 
 console.log(eventID);
@@ -29,11 +31,14 @@ $( ".categoryForm" ).show();
     var eventCategory = $('.eventCategory').val();
     var eventID = Session.get('eventID');
     var eventName = Session.get('eventName');
+    var currentUserId = Meteor.userId();
+
 
     Category.insert({
         eventCategory: eventCategory,
         eventID : eventID,
-        eventName:eventName
+        eventName:eventName,
+        createdBy: currentUserId
     });
 
     $('.eventCategory').val('');
