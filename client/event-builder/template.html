@@ -1,9 +1,5 @@
 <template name = "eventBuilder">
 
-<script>
-  $( ".categoryForm" ).hide();
-</script>
-
   <form class="form-horizontal eventForm">
     <fieldset>
 
@@ -52,7 +48,7 @@
       <!-- Button -->
       <div>
         <div class="col-md-4"></div>
-        <button id="singlebutton" name="singlebutton" class="btn btn-success col-md-4">Submit Event</button>
+        <button id="singlebutton" name="singlebutton" class="btn btn-success col-md-4 finishedButton">Finished</button>
         <div class="col-md-4"></div>
     </div>
 
@@ -62,27 +58,29 @@
   </form>
 
 
-
+<!--
   {{#each event}}
-  <legend>{{eventName}}</legend>
+  <h1 class="col-md-6">{{eventName}}</h1>
   <button type="button" class="deleteEventName">Delete Event</button>
   {{/each}}
+-->
 
-      <div class="container">
+      <div class="container eventBuilderTable">
     <table class="table">
       <thead>
         <tr>
-          <th>Event Name</th>
-          <th>Categories</th>
-          <th>Event ID</th>
+          <th></th>
+          {{#each event}}
+          <th>{{eventName}}</th>
+          <!--<button type="button" class="deleteEventName">Delete Event</button>-->
+          {{/each}}
         </tr>
       </thead>
       <tbody>
         {{#each category}}
         <tr>
-          <td>{{eventName}}</td>
+          <td><b>Category</b></td>
           <td>{{eventCategory}}</td>
-          <td>{{eventID}}</td>
           <button type="button" class="deleteCategory">Delete Category</button>
         </tr>
 

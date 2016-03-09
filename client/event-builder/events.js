@@ -1,7 +1,7 @@
 Template.eventBuilder.events({
 
   'click .addEventButton': function (event) {
-
+    
    if(event){
      event.preventDefault();
      var eventName = $('.eventName').val();
@@ -20,8 +20,10 @@ Template.eventBuilder.events({
 
 console.log(eventID);
 $('.eventName').val('');
-$( ".eventForm" ).hide();
-$( ".categoryForm" ).show();
+
+$(".eventForm").hide();
+$(".categoryForm").show();
+$(".eventBuilderTable").show();
 }
 },
 
@@ -75,10 +77,13 @@ $( ".categoryForm" ).show();
   Events.remove({_id: thisID});
   //Category.remove({eventID: thisID}); include when using methods
 
-  if(event){
-  $( ".categoryForm" ).hide();
-  $( ".eventForm" ).show();
-}
+},
+
+'click .finishedButton': function () {
+  event.preventDefault();
+
+Router.go('/events');
+
 },
 
 

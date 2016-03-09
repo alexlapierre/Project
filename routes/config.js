@@ -3,7 +3,7 @@ Router.configure({
 });
 
 AccountsTemplates.configureRoute('signIn', {
-    redirect: '/status'
+    redirect: '/events'
 });
 
 var myPostLogout = function(){

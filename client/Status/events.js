@@ -1,10 +1,13 @@
 Template.addStatusForm.events({
 
+// Adds a status to the Status collection
+
   'submit .addStatus': function (event) {
     event.preventDefault();
     var statusInput = event.target.status.value;
     //var categorySelected = $('.boxCheck:checked').val();
     var categorySelected = event.target.categoryDropMenu.value;
+    var currentEventID = Session.get('eventID');
 
     if(Meteor.user()){
     var userEmail = Meteor.user().emails[0].address;
@@ -20,7 +23,8 @@ Template.addStatusForm.events({
         statusDesc : statusInput,
         category : categorySelected,
         date: dateDB,
-        userEmail: userEmail
+        userEmail: userEmail,
+        eventID : currentEventID
     });
   }else{
     window.confirm("Blank statuses are not valid. Please write something!")
@@ -34,17 +38,7 @@ Template.addStatusForm.events({
 
 },
 
-'click .delete': function () {
-  event.preventDefault();
-  //console.log('working');
-
-  //console.log(this._id);
-  Session.set('statusID',this._id);
-  var statusID = Session.get('statusID');
-
-  Status.remove({_id: statusID});
-},
-
+//The filter event checks if the filter submit button has been clicked
 
 'submit .filter': function (event) {
 
@@ -59,11 +53,26 @@ Template.addStatusForm.events({
 
 },
 
+//If the reset button is clicked it turns off the filter to show all comments again
+
 'click .reset': function () {
   event.preventDefault();
   if(event){
     Session.set('clickChecker',false);
   }
+},
+
+//deletes a status from the status collection
+
+'click .delete': function () {
+  event.preventDefault();
+  //console.log('working');
+
+  //console.log(this._id);
+  Session.set('statusID',this._id);
+  var statusID = Session.get('statusID');
+
+  Status.remove({_id: statusID});
 },
 
 });

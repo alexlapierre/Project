@@ -26,3 +26,5 @@ twbs:bootstrap
 accounts-password
 useraccounts:bootstrap
 useraccounts:iron-routing
+
+houston:admin

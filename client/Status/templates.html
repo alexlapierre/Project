@@ -9,7 +9,7 @@
       <input type="text" name="status" class="statusInput form-control" rows="3" placeholder="Write your comment here....">
       <select name="categoryDropMenu" class="form-control" id="sel1">
       {{#each categories}}
-        <option value={{categoryDesc}}>{{categoryDesc}}</option>
+        <option value={{eventCategory}}>{{eventCategory}}</option>
       {{/each}}
       </select>
       <input type="submit" value="Add Comment" class="btn btn-default">
@@ -23,7 +23,7 @@
     <form class="filter">
       <select name="categoryFilter" class="form-control" id="sel1">
       {{#each categories}}
-        <option value={{categoryDesc}}>{{categoryDesc}}</option>
+        <option value={{eventCategory}}>{{eventCategory}}</option>
       {{/each}}
       </select>
       <input type="submit" value="Add Filter" class="btn btn-default">
