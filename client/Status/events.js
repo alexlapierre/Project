@@ -66,13 +66,31 @@ Template.addStatusForm.events({
 
 'click .delete': function () {
   event.preventDefault();
-  //console.log('working');
 
-  //console.log(this._id);
   Session.set('statusID',this._id);
   var statusID = Session.get('statusID');
 
   Status.remove({_id: statusID});
+},
+
+'click .subscribe': function () {
+  event.preventDefault();
+
+  var currentUserId = Meteor.userId();
+  var currentEventID = Session.get('eventID');
+  var checked = [];
+
+$("input[name='categoryPicked']:checked").each(function ()
+{
+    checked.push($(this).val());
+});
+
+console.log(checked);
+
+  for(val of checked){
+    console.log(val);
+  }
+
 },
 
 });
