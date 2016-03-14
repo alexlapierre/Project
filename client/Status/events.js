@@ -19,13 +19,9 @@ Template.addStatusForm.events({
     console.log(dateDB);
 
   if (statusInput != ""){
-    Status.insert({
-        statusDesc : statusInput,
-        category : categorySelected,
-        date: dateDB,
-        userEmail: userEmail,
-        eventID : currentEventID
-    });
+
+    Meteor.call('insertStatusData', statusInput,categorySelected,dateDB,userEmail,currentEventID);
+
   }else{
     window.confirm("Blank statuses are not valid. Please write something!")
   }
@@ -70,27 +66,10 @@ Template.addStatusForm.events({
   Session.set('statusID',this._id);
   var statusID = Session.get('statusID');
 
-  Status.remove({_id: statusID});
-},
-
-'click .subscribe': function () {
-  event.preventDefault();
-
-  var currentUserId = Meteor.userId();
-  var currentEventID = Session.get('eventID');
-  var checked = [];
-
-$("input[name='categoryPicked']:checked").each(function ()
-{
-    checked.push($(this).val());
-});
-
-console.log(checked);
-
-  for(val of checked){
-    console.log(val);
-  }
+  Meteor.call('removeStatusData', statusID);
 
 },
+
+
 
 });

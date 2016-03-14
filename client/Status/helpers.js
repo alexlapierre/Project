@@ -1,6 +1,7 @@
 Template.addStatusForm.helpers({
 
   status: function () {
+    Meteor.subscribe('theStatus');
     var currentEventID = Session.get('eventID');
     var categoryFilter = Session.get('categoryFilter');
     var clickChecker = Session.get('clickChecker');
@@ -12,6 +13,7 @@ Template.addStatusForm.helpers({
   },
 
   categories: function(){
+    Meteor.subscribe('theCategorys');
     var currentEventID = Session.get('eventID');
     return Category.find({eventID: currentEventID});
   },

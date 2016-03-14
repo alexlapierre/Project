@@ -1,7 +1,7 @@
 Template.eventBuilder.events({
 
   'click .addEventButton': function (event) {
-    
+
    if(event){
      event.preventDefault();
      var eventName = $('.eventName').val();
@@ -11,12 +11,7 @@ Template.eventBuilder.events({
    Session.set('eventName',eventName);
    var currentUserId = Meteor.userId();
 
-     Events.insert({
-         eventName : eventName,
-         date: dateDB,
-         _id: eventID,
-         createdBy: currentUserId
-});
+Meteor.call('insertEventData', eventName,dateDB,eventID,currentUserId);
 
 console.log(eventID);
 $('.eventName').val('');
@@ -35,13 +30,7 @@ $(".eventBuilderTable").show();
     var eventName = Session.get('eventName');
     var currentUserId = Meteor.userId();
 
-
-    Category.insert({
-        eventCategory: eventCategory,
-        eventID : eventID,
-        eventName:eventName,
-        createdBy: currentUserId
-    });
+Meteor.call('insertCategoryData', eventCategory,eventID,eventName,currentUserId);
 
     $('.eventCategory').val('');
 
@@ -54,7 +43,7 @@ $(".eventBuilderTable").show();
   Session.set('event_ID',this._id);
   var event_ID = Session.get('event_ID');
 
-  Events.remove({_id: event_ID});
+  Meteor.call('removeEventData',event_ID);
 },
 
 'click .deleteCategory': function () {
@@ -64,7 +53,8 @@ $(".eventBuilderTable").show();
   Session.set('catID',this._id);
   var catID = Session.get('catID');
 
-  Category.remove({_id: catID});
+  Meteor.call('removeCategoryData',catID);
+
 },
 
 'click .deleteEventName': function () {
@@ -74,7 +64,7 @@ $(".eventBuilderTable").show();
   Session.set('thisID',this._id);
   var thisID = Session.get('thisID');
 
-  Events.remove({_id: thisID});
+  Meteor.call('removeEventName',thisID);
   //Category.remove({eventID: thisID}); include when using methods
 
 },
