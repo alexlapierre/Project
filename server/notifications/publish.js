@@ -5,3 +5,7 @@ Meteor.publish('theNotificationStatus', function(){
 Meteor.publish('theNotificationSubscriptions', function(){
   return Subscriptions.find();
 });
+
+Meteor.publish('theNotifications', function(){
+  return Notifications.find();
+});

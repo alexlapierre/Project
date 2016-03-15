@@ -9,6 +9,8 @@ Template.addStatusForm.events({
     var categorySelected = event.target.categoryDropMenu.value;
     var currentEventID = Session.get('eventID');
 
+    console.log(currentEventID);
+
     if(Meteor.user()){
     var userEmail = Meteor.user().emails[0].address;
   }else{

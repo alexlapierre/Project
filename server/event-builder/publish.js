@@ -5,3 +5,7 @@ Meteor.publish('theEvent', function(eventID, currentUserId){
 Meteor.publish('theCategory', function(eventID, currentUserId){
   return Category.find({eventID: eventID, createdBy: currentUserId});
 });
+
+Meteor.publish('Events', function(){
+  return Events.find();
+});

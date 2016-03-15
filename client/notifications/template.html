@@ -1,9 +1,20 @@
 <template name = "notifications">
+  <!--
   <div class="container">
     <ul>
   {{#each notifications}}
       <li>{{eventID}}  {{category}}</li>
   {{/each}}
     </ul>
+</div>-->
+
+<div>
+{{#each notifications}}
+  <div class="alert alert-success">
+    <strong>Event:</strong>{{eventName}} <strong>Category:</strong> {{category}}
+  </div>
+{{/each}}
 </div>
+
+
 </template>
