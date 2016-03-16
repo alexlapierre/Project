@@ -1,18 +1,12 @@
 <template name = "notifications">
-  <!--
-  <div class="container">
-    <ul>
-  {{#each notifications}}
-      <li>{{eventID}}  {{category}}</li>
-  {{/each}}
-    </ul>
-</div>-->
 
 <div>
 {{#each notifications}}
+<a href="/status/{{eventID}}">
   <div class="alert alert-success">
-    <strong>Event:</strong>{{eventName}} <strong>Category:</strong> {{category}}
+    <strong>{{currentEventName}}</strong> | <strong>{{category}}</strong> | <strong>{{userEmail}}</strong>-{{statusDesc}}
   </div>
+</a>
 {{/each}}
 </div>
 

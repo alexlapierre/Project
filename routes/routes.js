@@ -10,6 +10,10 @@ Router.route('/event-builder', {
     template: 'eventBuilder'
 });
 
+Router.route('/notifications', {
+    template: 'notifications'
+});
+
 Router.route('/status/:_id', {
     template: 'addStatusForm',
     data : function(){

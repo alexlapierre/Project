@@ -20,9 +20,29 @@ Template.notifications.helpers({
 });
 
 //All the status's the user should be notified for based on what eventID and categorys he/she is subscribed to.
-  var userNotifications = Status.find( { $and: [ { eventID: { $in: arrayEvents  } } , { category: { $in: arrayCategory } } ] } );
+  var userNotifications = Status.find({ $and: [ { eventID: { $in: arrayEvents  } } , { category: { $in: arrayCategory } }, { createdBy: { $ne: currentUserID } } ] }, {sort: {date: -1} } );
 
-  //Putting all these status's into a notifications collection.
+/**
+  //Count of all the status's the user should be notified for based on what eventID and categorys he/she is subscribed to.
+
+  var query = Status.find({ $and: [ { eventID: { $in: arrayEvents  } } , { category: { $in: arrayCategory } }, { createdBy: { $ne: currentUserID } } ] }, {sort: {date: -1} } );
+
+  var handle = query.observe({
+    added: function (id, fields) {
+      sAlert.success('New Notifications', {timeout: '6000'});
+    },
+  });
+
+  // After five seconds, stop keeping the count.
+  setTimeout(function () {handle.stop();}, 5000);
+  **/
+
+  return userNotifications;
+
+
+/*
+
+//Putting all these status's into a notifications collection.
 
   userNotifications.forEach(function (collection) {
 
@@ -33,9 +53,11 @@ Template.notifications.helpers({
     Meteor.call('insertNotificationsData', eventID,category,eventName,currentUserID);
 });
 
+
 Meteor.subscribe('theNotifications');
 return Notifications.find({currentUserID:currentUserID});
 
+*/
 }
 
 });
