@@ -1,6 +1,7 @@
 Template.subscriptions.events({
 
-'click .subscribe': function () {
+'click .subscribe': function (event) {
+  if(event){
   event.preventDefault();
 
   var currentUserId = Meteor.userId();
@@ -15,7 +16,19 @@ $("input[name='categoryPicked']:checked").each(function ()
   for(val of checked){
     Meteor.call('insertSubscriptionData', currentUserId, currentEventID, val);
   }
+  $(".subscribe").css('visibility', 'hidden');
+  $(".unsubscribe").css('visibility', 'visable');
+}
 
+},
+
+'click .unsubscribe': function (event) {
+
+  if(event){
+  event.preventDefault();
+  $(".subscribe").css('visibility', 'visible');
+  $(".unsubscribe").css('visibility', 'hidden');
+}
 },
 
 });

@@ -1,4 +1,4 @@
-/*
+/**
 Tracker.autorun(function () {
   Meteor.subscribe('theNotificationStatus');
   Meteor.subscribe('theNotificationSubscriptions');
@@ -30,4 +30,5 @@ var handle = query.observe({
 setTimeout(function () {handle.stop();}, 5000);
 
 });
-*/
+
+**/

@@ -9,6 +9,10 @@ body {
 margin-bottom: 200%;
 }
 
+.unsubscribe{
+  visibility:hidden;
+}
+
 /* Box styles */
 .myBox {
 border: none;
